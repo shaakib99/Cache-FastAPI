@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from cache_service.service import CacheService
 from dotenv import load_dotenv
+from cache_service.lib.decorators import cache
 import uvicorn
 import os
 
@@ -16,6 +17,12 @@ def lifespan(app):
     cache_service.disconnect()
 
 app = FastAPI(lifespan=lifespan)
+
+# routes
+@cache("root")
+@app.get("/")
+def hello():
+    return "hello"
 
 
 # Start application
