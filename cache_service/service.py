@@ -5,11 +5,17 @@ class CacheService:
     def __init__(self, Service = RedisCacheService):
         self.service: CacheABC = Service.get_instance()
     
+    def connect(self):
+        return self.service.connect()
+    
+    def disconnect(self):
+        return self.service.disconnect()
+    
     def get(self, key: str) -> dict:
-        pass
+        return self.service.get(key)
 
     def set(self, key: str, data: dict) -> None:
-        pass
+        return self.service.set(key, data)
 
     def delete(self, key: str) -> None:
-        pass
+        return self.service.delete(key)
