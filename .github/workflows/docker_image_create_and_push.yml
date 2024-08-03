@@ -18,9 +18,9 @@ jobs:
                 REMOTE_DOCKER_HUB_REPO: ${{secrets.REMOTE_DOCKER_HUB_REPO}}
             
             - name: Install makefile
-              run: sudo apt-get install makefile docker
+              run: sudo apt-get install make docker
 
             - uses: actions/checkout@v4
 
             - name: Run push-to-docker-hub.sh
-              run: makefile
+              run: make
