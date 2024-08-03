@@ -9,14 +9,6 @@ jobs:
     create_docker_image_and_push_to_Dockerhub:
         runs-on: ubuntu-latest
         steps:
-            - name: Setup ENV
-              run: echo "Setting up ENV"
-              env:
-                DOCKER_HUB_USERNAME: ${{secrets.DOCKER_HUB_USERNAME}}
-                DOCKER_HUB_PASSWORD: ${{secrets.DOCKER_HUB_PASSWORD}}
-                LOCAL_DOKER_IMAGE_TAG: ${{secrets.LOCAL_DOKER_IMAGE_TAG}}
-                REMOTE_DOCKER_HUB_REPO: ${{secrets.REMOTE_DOCKER_HUB_REPO}}
-            
             - name: Install makefile
               run: sudo apt-get install make docker
 
@@ -24,3 +16,8 @@ jobs:
 
             - name: Run push-to-docker-hub.sh
               run: make
+              env:
+                DOCKER_HUB_USERNAME: ${{secrets.DOCKER_HUB_USERNAME}}
+                DOCKER_HUB_PASSWORD: ${{secrets.DOCKER_HUB_PASSWORD}}
+                LOCAL_DOKER_IMAGE_TAG: ${{secrets.LOCAL_DOKER_IMAGE_TAG}}
+                REMOTE_DOCKER_HUB_REPO: ${{secrets.REMOTE_DOCKER_HUB_REPO}}
