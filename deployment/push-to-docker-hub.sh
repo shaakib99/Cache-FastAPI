@@ -8,7 +8,7 @@ LOCAL_DOKER_IMAGE_TAG="${LOCAL_DOKER_IMAGE_TAG}"
 REMOTE_DOCKER_HUB_REPO="${REMOTE_DOCKER_HUB_REPO}"
 TAG="latest"
 
-echo Hello "$DOCKER_HUB_USERNAME"
+echo Hello "${DOCKER_HUB_USERNAME}"
 echo Password "$DOCKER_HUB_PASSWORD"
 
 echo "Login to docker hub"
