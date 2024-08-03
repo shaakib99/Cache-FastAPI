@@ -19,6 +19,9 @@ jobs:
             
             - name: Install makefile
               run: sudo apt-get install make docker
+            
+            - name: test_echo
+              run: echo "$DOCKER_HUB_USERNAME"
 
             - uses: actions/checkout@v4
 
