@@ -1,6 +1,6 @@
 on:
     push: 
-        branches: ['wahid']
+        branches: ['main']
 
 permissions: 
     contents: read
@@ -9,7 +9,7 @@ jobs:
     create_docker_image_and_push_to_Dockerhub:
         runs-on: ubuntu-latest
         steps:
-            - name: Install makefile
+            - name: Installing make and docker
               run: sudo apt-get install make docker
 
             - uses: actions/checkout@v4
