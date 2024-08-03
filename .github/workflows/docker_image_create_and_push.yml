@@ -1,6 +1,6 @@
 on:
     push: 
-        branches: ['main']
+        branches: ['wahid']
 
 permissions: 
     contents: read
@@ -16,6 +16,9 @@ jobs:
                 DOCKER_HUB_PASSWORD: ${{secrets.DOCKER_HUB_PASSWORD}}
                 LOCAL_DOKER_IMAGE_TAG: ${{secrets.LOCAL_DOKER_IMAGE_TAG}}
                 REMOTE_DOCKER_HUB_REPO: ${{secrets.REMOTE_DOCKER_HUB_REPO}}
+            
+            - name: Install makefile
+              run: apt-get install makefile
 
             - uses: actions/checkout@v4
 
