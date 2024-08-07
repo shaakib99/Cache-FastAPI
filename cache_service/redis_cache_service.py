@@ -6,7 +6,7 @@ import json
 class RedisCacheService(CacheABC):
     instance = None
     def __init__(self):
-        self.connection = Redis.from_url(os.getenv("REDIS_HOST"))
+        self.connection = Redis.from_url(os.getenv("REDIS_HOST", "redis://test"))
         
     def connect(self):
         self.connection.ping()
