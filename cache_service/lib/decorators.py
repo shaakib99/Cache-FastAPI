@@ -8,11 +8,11 @@ def cache(key: str):
             new_key = generate_cache_key(key, "CACHE:", args, kwargs)
             data = cache_service.get(new_key) 
             if data is not None: 
-                return data
+                return {"message": "Cache Hit"}
             
             result = func(*args, **kwargs)
             cache_service.set(new_key, result)
-            return result
+            return {"message": "Cache Miss"}
         return inner
     return wrapper
 
