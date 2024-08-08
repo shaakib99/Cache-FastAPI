@@ -21,7 +21,7 @@ app = FastAPI(lifespan=lifespan)
 # routes
 @app.get("/")
 @cache("root")
-def hello(temp:int):
+def hello(temp:int = None):
     return "hello"
 
 
