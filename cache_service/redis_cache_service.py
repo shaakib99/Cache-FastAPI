@@ -24,9 +24,9 @@ class RedisCacheService(CacheABC):
         return RedisCacheService.instance
 
     def get(self, key: str) -> dict:
-        if self.connection.exists(key) is None: 
+        if not self.connection.exists(key): 
             return 
-            
+
         data_str = self.connection.get(key)
         return json.loads(data_str)
 

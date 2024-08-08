@@ -1,10 +1,13 @@
 from cache_service.service import CacheService
 import json
+from functools import wraps
 
 def cache(key: str):
-    cache_service = CacheService()
     def wrapper(func):
+        @wraps(func)
         def inner(*args, **kwargs):
+            cache_service = CacheService()
+
             new_key = generate_cache_key(key, "CACHE:", args, kwargs)
             data = cache_service.get(new_key) 
             if data is not None: 
