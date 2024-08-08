@@ -9,7 +9,7 @@
 
 ## Demo
 
-Insert gif or link to demo
+link to demo
 
 https://qualified-avivah-shaakib99-65825051.koyeb.app/
 ## Documentation
