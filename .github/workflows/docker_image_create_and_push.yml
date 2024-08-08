@@ -16,10 +16,16 @@ jobs:
             - uses: actions/checkout@v4
 
             - name: Run push-to-docker-hub.sh
-              run: make
+              run: make push_to_docker_hub
               env:
                 DOCKER_HUB_USERNAME: ${{secrets.DOCKER_HUB_USERNAME}}
                 DOCKER_HUB_PASSWORD: ${{secrets.DOCKER_HUB_PASSWORD}}
                 LOCAL_DOKER_IMAGE_TAG: ${{secrets.LOCAL_DOKER_IMAGE_TAG}}
                 REMOTE_DOCKER_HUB_REPO: ${{secrets.REMOTE_DOCKER_HUB_REPO}}
                 REDIS_HOST: ${{secrets.REDIS_HOST}}
+            
+            - name: Deploy
+              run: make deploy_to_koyeb
+              env:
+                KOYEB_ACCESS_TOKEN: ${{secrets.KOYEB_ACCESS_TOKEN}}
+                KOYEB_SERVICE_ID: ${{secrets.KOYEB_SERVICE_ID}}
